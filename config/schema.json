@@ -1,0 +1,309 @@
+{
+  "schema_name": "Security Master",
+  "schema_version": "3.2.1",
+  "target_system": "Financial Data Platform",
+  "description": "Schema definition for security-level data ingestion into analytics platform",
+  "fields": [
+    {
+      "field_name": "SecId",
+      "display_name": "Security ID",
+      "data_type": "string",
+      "max_length": 10,
+      "required": true,
+      "description": "Proprietary security identifier",
+      "category": "identifiers"
+    },
+    {
+      "field_name": "ISIN",
+      "display_name": "ISIN",
+      "data_type": "string",
+      "max_length": 12,
+      "required": false,
+      "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$",
+      "description": "International Securities Identification Number",
+      "category": "identifiers"
+    },
+    {
+      "field_name": "CUSIP",
+      "display_name": "CUSIP",
+      "data_type": "string",
+      "max_length": 9,
+      "required": false,
+      "pattern": "^[0-9]{3}[A-Z0-9]{5}[0-9]$",
+      "description": "Committee on Uniform Securities Identification Procedures number",
+      "category": "identifiers"
+    },
+    {
+      "field_name": "Ticker",
+      "display_name": "Ticker Symbol",
+      "data_type": "string",
+      "max_length": 10,
+      "required": false,
+      "description": "Exchange ticker symbol",
+      "category": "identifiers"
+    },
+    {
+      "field_name": "LegalName",
+      "display_name": "Legal Name",
+      "data_type": "string",
+      "max_length": 256,
+      "required": true,
+      "description": "Official legal name of the security",
+      "category": "descriptive"
+    },
+    {
+      "field_name": "FundFamily",
+      "display_name": "Fund Family",
+      "data_type": "string",
+      "max_length": 128,
+      "required": false,
+      "description": "Fund family or provider name",
+      "category": "descriptive"
+    },
+    {
+      "field_name": "CategoryName",
+      "display_name": "Category",
+      "data_type": "string",
+      "max_length": 64,
+      "required": false,
+      "description": "Investment category classification",
+      "category": "classification"
+    },
+    {
+      "field_name": "GlobalAssetClassId",
+      "display_name": "Global Asset Class",
+      "data_type": "string",
+      "max_length": 32,
+      "required": false,
+      "description": "Broad asset class classification",
+      "category": "classification",
+      "allowed_values": ["Equity", "Fixed Income", "Allocation", "Alternative", "Commodities", "Money Market"]
+    },
+    {
+      "field_name": "InceptionDate",
+      "display_name": "Inception Date",
+      "data_type": "date",
+      "format": "YYYY-MM-DD",
+      "required": false,
+      "description": "Fund inception date",
+      "category": "descriptive"
+    },
+    {
+      "field_name": "BaseCurrency",
+      "display_name": "Base Currency",
+      "data_type": "string",
+      "max_length": 3,
+      "required": true,
+      "description": "ISO 4217 currency code",
+      "category": "descriptive"
+    },
+    {
+      "field_name": "NAV",
+      "display_name": "Net Asset Value",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "Latest net asset value per share",
+      "category": "pricing"
+    },
+    {
+      "field_name": "NAVDate",
+      "display_name": "NAV Date",
+      "data_type": "date",
+      "format": "YYYY-MM-DD",
+      "required": false,
+      "description": "Date of the NAV value",
+      "category": "pricing"
+    },
+    {
+      "field_name": "TotalNetAssets",
+      "display_name": "Total Net Assets (M)",
+      "data_type": "decimal",
+      "precision": 2,
+      "required": false,
+      "description": "Total net assets in millions of base currency",
+      "category": "size"
+    },
+    {
+      "field_name": "ExpenseRatio",
+      "display_name": "Net Expense Ratio (%)",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "Annual net expense ratio as percentage",
+      "category": "fees"
+    },
+    {
+      "field_name": "Yield",
+      "display_name": "SEC Yield (%)",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "SEC 30-day yield as percentage",
+      "category": "income"
+    },
+    {
+      "field_name": "Return_1M",
+      "display_name": "1-Month Return (%)",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "Trailing 1-month total return",
+      "category": "performance"
+    },
+    {
+      "field_name": "Return_3M",
+      "display_name": "3-Month Return (%)",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "Trailing 3-month total return",
+      "category": "performance"
+    },
+    {
+      "field_name": "Return_YTD",
+      "display_name": "YTD Return (%)",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "Year-to-date total return",
+      "category": "performance"
+    },
+    {
+      "field_name": "Return_1Y",
+      "display_name": "1-Year Return (%)",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "Trailing 1-year total return",
+      "category": "performance"
+    },
+    {
+      "field_name": "Return_3Y",
+      "display_name": "3-Year Return (% Ann.)",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "Trailing 3-year annualized total return",
+      "category": "performance"
+    },
+    {
+      "field_name": "Return_5Y",
+      "display_name": "5-Year Return (% Ann.)",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "Trailing 5-year annualized total return",
+      "category": "performance"
+    },
+    {
+      "field_name": "Return_10Y",
+      "display_name": "10-Year Return (% Ann.)",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "Trailing 10-year annualized total return",
+      "category": "performance"
+    },
+    {
+      "field_name": "StandardDeviation_3Y",
+      "display_name": "3-Year Std Dev",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "3-year annualized standard deviation",
+      "category": "risk"
+    },
+    {
+      "field_name": "SharpeRatio_3Y",
+      "display_name": "3-Year Sharpe Ratio",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "3-year Sharpe ratio",
+      "category": "risk"
+    },
+    {
+      "field_name": "Beta_3Y",
+      "display_name": "3-Year Beta",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "3-year beta relative to category benchmark",
+      "category": "risk"
+    },
+    {
+      "field_name": "Alpha_3Y",
+      "display_name": "3-Year Alpha",
+      "data_type": "decimal",
+      "precision": 4,
+      "required": false,
+      "description": "3-year annualized alpha",
+      "category": "risk"
+    },
+    {
+      "field_name": "StarRating",
+      "display_name": "Star Rating",
+      "data_type": "integer",
+      "required": false,
+      "description": "Star rating (1-5)",
+      "category": "ratings",
+      "min_value": 1,
+      "max_value": 5
+    },
+    {
+      "field_name": "AnalystRating",
+      "display_name": "Analyst Rating",
+      "data_type": "string",
+      "max_length": 16,
+      "required": false,
+      "description": "Medalist Rating",
+      "category": "ratings",
+      "allowed_values": ["Gold", "Silver", "Bronze", "Neutral", "Negative"]
+    },
+    {
+      "field_name": "StyleBox",
+      "display_name": "Style Box",
+      "data_type": "string",
+      "max_length": 32,
+      "required": false,
+      "description": "Style Box classification",
+      "category": "classification"
+    },
+    {
+      "field_name": "TopHoldings",
+      "display_name": "Top Holdings",
+      "data_type": "array",
+      "required": false,
+      "description": "Top portfolio holdings with weights",
+      "category": "holdings",
+      "item_schema": {
+        "SecurityName": "string",
+        "Weight": "decimal",
+        "Ticker": "string"
+      }
+    },
+    {
+      "field_name": "SectorWeights",
+      "display_name": "Sector Allocation",
+      "data_type": "object",
+      "required": false,
+      "description": "Sector allocation percentages",
+      "category": "allocation"
+    }
+  ],
+  "categories": {
+    "identifiers": "Security Identification",
+    "descriptive": "Descriptive Information",
+    "classification": "Classification & Style",
+    "pricing": "Pricing & NAV",
+    "size": "Fund Size",
+    "fees": "Fees & Expenses",
+    "income": "Income & Yield",
+    "performance": "Performance Returns",
+    "risk": "Risk Metrics",
+    "ratings": "Ratings & Rankings",
+    "holdings": "Portfolio Holdings",
+    "allocation": "Asset Allocation"
+  }
+}

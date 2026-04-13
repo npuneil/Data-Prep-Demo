@@ -1,0 +1,41 @@
+# Data Prep Assistant - Configuration
+app:
+  name: "Data Prep Assistant"
+  version: "1.0.0"
+  tagline: "On-Device AI-Powered Financial Data Preparation"
+  
+npu:
+  preferred_provider: "DmlExecutionProvider"
+  fallback_provider: "CPUExecutionProvider"
+  benchmark_iterations: 100
+  
+scraper:
+  timeout: 30
+  max_retries: 3
+  user_agent: "DataPrepAssistant/1.0 (Research Assistant)"
+  max_page_size_mb: 10
+  
+extraction:
+  confidence_threshold: 0.65
+  max_entities_per_type: 50
+  enable_ml_extraction: true
+  
+normalization:
+  date_format: "YYYY-MM-DD"
+  currency_default: "USD"
+  percentage_decimal_places: 4
+  monetary_decimal_places: 2
+  
+export:
+  default_format: "json"
+  include_provenance: true
+  include_quality_scores: true
+  output_directory: "./output"
+
+sample_urls:
+  - label: "SEC EDGAR - Vanguard Fund Filings"
+    url: "https://efts.sec.gov/LATEST/search-index?q=%22vanguard%22&dateRange=custom&startdt=2024-01-01&enddt=2024-12-31&forms=N-CSR"
+  - label: "SEC EDGAR - BlackRock Fund Filings"
+    url: "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=blackrock&CIK=&type=N-CSR&dateb=&owner=include&count=10&search_text=&action=getcompany"
+  - label: "US Treasury Yield Data"
+    url: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/all/2024?type=daily_treasury_yield_curve&field_tdr_date_value=2024&page&_format=csv"
